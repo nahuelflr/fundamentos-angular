@@ -16,12 +16,15 @@ export class AppComponent {
     avatar: 'https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg'
   }
 
+  names: string[] = ['Nahuel', 'Julian', 'Santi'];
+  newName = '';
+
   toggleButton() {
     this.btnDisable = !this.btnDisable;
   }
 
   increaseAge() {
-   this.person.age += 1;
+    this.person.age += 1;
   }
 
   onScroll(event: Event) {
@@ -35,4 +38,12 @@ export class AppComponent {
 
   }
 
+  addName() {
+    this.names.push(this.newName);
+    this.newName = '';
+  }
+
+  deleteName(index: number) {
+    this.names.splice(index, 1);
+  }
 }

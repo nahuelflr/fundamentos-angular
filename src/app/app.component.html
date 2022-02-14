@@ -1,5 +1,16 @@
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" />
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length === 0">NO hay nombres</li>
+  <li *ngFor="let name of names index as i">
+    {{ i }} {{ name }}
+    <button (click)="deleteName(i)">Delete</button>
+  </li>
+</ul>
+<hr />
 <h1>*ngIf</h1>
-<input type="text" required [(ngModel)]="person.name"/>
+<input type="text" required [(ngModel)]="person.name" />
 <p *ngIf="person.name == 'nahuel'">Soy Nahuel</p>
 <p *ngIf="person.name == 'julian' && person.age === 21; then myblockTrue; else myblockFalse"></p>
 <ng-template #myblockTrue>
@@ -8,32 +19,33 @@
 <ng-template #myblockFalse>
   <p>Bloque de else</p>
 </ng-template>
-<hr/>
+<hr />
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
 <input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
 <p>Valid: {{nameInput.valid}}</p>
 <p>Nombre {{ person.age }}</p>
-<input type="number" max= "30" min="18"required #ageInput="ngModel" [(ngModel)]="person.age" />
+<input type="number" max="30" min="18" required #ageInput="ngModel" [(ngModel)]="person.age" />
 <p>Valid: {{ageInput.valid}}</p>
-<hr/>
+<hr />
 <h1>Eventos</h1>
 <button [disabled]="btnDisable">Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
 <p>Edad {{person.age}}</p>
 <button (click)="increaseAge()">Age ++</button>
-<div class="box"(scroll)="onScroll($event)">
-  <p>Una forma común de manejar eventos es pasar el “objeto de evento” $event, donde se capturan eleentos del DOM, por lo general este evento contiene la informacion que debemos procesar en el metodo.</p>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Una forma común de manejar eventos es pasar el “objeto de evento” $event, donde se capturan eleentos del DOM, por
+    lo general este evento contiene la informacion que debemos procesar en el metodo.</p>
 </div>
 <p>Nombre {{ person.name }}</p>
-<input type="text" [value]="person.name"(keyup)="changeName($event)"/>
-<hr/>
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<hr />
 <h1>Propiedades</h1>
 <button [disabled]="btnDisable">Enviar</button>
 <input type="text" [value]="person.name" />
 <progress max="100" [value]="person.age"></progress>
 <img width="100" [src]="person.avatar">
-<hr/>
+<hr />
 <h1>Hola mundo</h1>
 <h2>{{'Hola Mundo'.repeat(5)}}</h2>
 <p>3 + 3 ={{ 3 + 3 }}</p>
