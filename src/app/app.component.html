@@ -1,7 +1,37 @@
+<h1>ngSwitch</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<div [ngSwitch]="person.name">
+  <p *ngSwitchCase="'nicolas'">
+    La persona es nicolas
+  </p>
+
+  <p *ngSwitchCase="'julian'">
+    La persona es Julian
+  </p>
+
+  <p *ngSwitchCase="'camilo'">
+    La persona es Camilo
+  </p>
+  <p *ngSwitchDefault>No hace match</p>
+
+</div>
+
+<!-- <p *ngIf="person.name === 'nicolas'">
+  La persona es nicolas
+</p>
+
+<p *ngIF="persona.name === 'julian'">
+  La persona es Julian
+</p>
+
+<p *ngIF="persona.name === 'camilo'">
+  La persona es Camilo
+</p> -->
+<hr />
 <h1>*ngFor Objs</h1>
-<div>
+<div class="products--grid">
   <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" [alt]="">
+    <img [src]="product.image" [alt]="">
     <h2>{{ product.price}}</h2>
     <p>{{ product.name}}</p>
   </div>
@@ -59,4 +89,4 @@
 <h2>{{'Hola Mundo'.repeat(5)}}</h2>
 <p>3 + 3 ={{ 3 + 3 }}</p>
 <h3>Hola, soy {{ name }} y tengo {{ age }}</h3>
-<img src={{img}} alt="image">
+<img width="200" src={{img}} alt="image">
